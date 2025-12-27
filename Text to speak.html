@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to speak </title>
+</head>
+<body>
+    <div class="box">
+   <h1>
+    Text to Speech
+   </h1>
+        <input type="text" id="text" name="text" placeholder=" Trying Text to speech">
+        <input type="button" onclick="textspeak()" value="submit" style="color:rgb(137, 0, 0)" style="background-color:rgb(0, 124, 0)">
+    </div>  
+        </body>
+        <div id="output"></div>
+    
+        <p>
+            Note: This feature requires the browser to support the SpeechSynthesis API. If not, you may need to use an alternative text-to-speech conversion tool.
+        </p>  
+        <p>
+            Click the button to convert the entered text into speech. The speech will be read out-loud by the browser.
+        </p>
+        <p>
+            The SpeechSynthesis API is used to convert text into speech. It requires the user's microphone permission to work.
+        </p>
+        <p>
+            If you encounter any issues with the SpeechSynthesis API, please check the browser's developer console for error messages.
+        </p>
+     
+</script>
+<style>
+    body{
+        font-family: Arial, sans-serif;
+        align-items: center;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    input{
+        width: 40%;
+        height: 1vw;
+        padding: 2vw;
+        border-radius: 5px;
+        display: flex;
+        font-size: 2vw;
+        align-items: center
+    }
+    .box h1{
+        margin: 1vw;
+         color: #333;
+        font-size: 6vw;
+    }
+    input button{
+        cursor: pointer;
+    }
+   .box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+    background-color:rgb(72, 152, 201);
+    }
+   p{
+    margin:  2.2vw;;
+    color: #999;
+    text-align: center;
+    }   
+ </style>
+ <script>
+    function textspeak(){
+    var text = document.getElementById('text').value;
+    var synth = window.speechSynthesis;
+    var utterance = new SpeechSynthesisUtterance(text);
+    synth.speak(utterance);
+}
+
+ </script>
+</body>
+</html>
